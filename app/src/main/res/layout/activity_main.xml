@@ -6,6 +6,13 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp">
 
+    <CheckBox
+        android:id="@+id/whipped_cream_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/topping"
+        android:onClick="onCheckboxClicked"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -43,6 +50,8 @@
             android:onClick="decrement"/>
 
     </RelativeLayout>
+
+
 
     <TextView
         android:layout_width="match_parent"
