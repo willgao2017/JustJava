@@ -11,9 +11,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
+
+import static com.example.android.justjava.R.id.enterText;
 
 /**
  * This app displays an order form to order coffee.
@@ -39,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
         display(quantity);
     }
 
-
     /**
      * This method is called when the order button is clicked.
      */
@@ -54,11 +56,14 @@ public class MainActivity extends AppCompatActivity {
         CheckBox chocolateCheckBox = (CheckBox) findViewById(R.id.chocolate_checkbox);
 
         boolean hasChocolate = chocolateCheckBox.isChecked();
-        Log.v("MainActivity99","Has whipped cream:"+hasChocolate);
+        Log.v("MainActivity99", "Has whipped cream:" + hasChocolate);
 
 
         priceMessage += "\nHas whipped cream added? " + hasWhippedCream;
         priceMessage += "\nHas chocolate added? " + hasChocolate;
+
+        EditText customerName = (EditText) findViewById(R.id.enterText);
+        priceMessage += "\nCustomer name is: " + customerName.getText();
 
         displayMessage(priceMessage);
 
@@ -88,9 +93,6 @@ public class MainActivity extends AppCompatActivity {
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
     }    */
-
-
-
     public void onCheckboxClicked(View view) {
 
     }
