@@ -1,8 +1,8 @@
 /**
  * Add your package below. Package name can be found in the project's AndroidManifest.xml file.
  * This is the package name our example uses:
- *
- * package com.example.android.justjava; 
+ * <p>
+ * package com.example.android.justjava;
  */
 package com.example.android.justjava;
 
@@ -22,20 +22,22 @@ public class MainActivity extends AppCompatActivity {
 
 
     int quantity = 2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
 
-    public void increment(View view){
+    public void increment(View view) {
         quantity = quantity + 1;
-    display(quantity);}
+        display(quantity);
+    }
 
-    public void decrement(View view){
+    public void decrement(View view) {
         quantity = quantity - 1;
-        display(quantity);}
-
+        display(quantity);
+    }
 
 
     /**
@@ -47,8 +49,17 @@ public class MainActivity extends AppCompatActivity {
         boolean hasWhippedCream = whippedCreamCheckBox.isChecked();
         Log.v("MainActivity99", "Has whipped cream:" + hasWhippedCream);
 
-        String priceMessage = "$" + quantity*10;
+        String priceMessage = "$" + quantity * 10;
+
+        CheckBox chocolateCheckBox = (CheckBox) findViewById(R.id.chocolate_checkbox);
+
+        boolean hasChocolate = chocolateCheckBox.isChecked();
+        Log.v("MainActivity99","Has whipped cream:"+hasChocolate);
+
+
         priceMessage += "\nHas whipped cream added? " + hasWhippedCream;
+        priceMessage += "\nHas chocolate added? " + hasChocolate;
+
         displayMessage(priceMessage);
 
 
@@ -76,10 +87,11 @@ public class MainActivity extends AppCompatActivity {
     /*private void displayPrice(int number) {
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
-    }
-    */
+    }    */
 
-    public void onCheckboxClicked(View view){
+
+
+    public void onCheckboxClicked(View view) {
 
     }
 

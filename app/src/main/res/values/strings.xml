@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Just Java</string>
-    <string name="topping">whipped cream</string>
+    <string name="topping1">whipped cream</string>
+    <string name="topping2">chocolate</string>
+
 </resources>
+
