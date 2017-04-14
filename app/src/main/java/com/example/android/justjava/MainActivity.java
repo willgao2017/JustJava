@@ -17,6 +17,7 @@ import android.widget.TextView;
 import java.text.NumberFormat;
 
 import static com.example.android.justjava.R.id.enterText;
+import static com.example.android.justjava.R.id.order_summary_text_view;
 
 /**
  * This app displays an order form to order coffee.
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     int quantity = 2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     public void increment(View view) {
         quantity = quantity + 1;
         display(quantity);
+
     }
 
     public void decrement(View view) {
@@ -46,18 +49,33 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
+
+        int pureCoffeePrice = 10;
+        int chocolatePrice = 1;
+        int whippedCreamPrice = 2;
+        int eachCupPrice;
+
         CheckBox whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_checkbox);
 
         boolean hasWhippedCream = whippedCreamCheckBox.isChecked();
         Log.v("MainActivity99", "Has whipped cream:" + hasWhippedCream);
-
-        String priceMessage = "$" + quantity * 10;
 
         CheckBox chocolateCheckBox = (CheckBox) findViewById(R.id.chocolate_checkbox);
 
         boolean hasChocolate = chocolateCheckBox.isChecked();
         Log.v("MainActivity99", "Has whipped cream:" + hasChocolate);
 
+        eachCupPrice = pureCoffeePrice;
+
+        if (hasChocolate)
+            eachCupPrice += chocolatePrice;
+
+        if (hasWhippedCream)
+            eachCupPrice += whippedCreamPrice;
+
+        Log.v("MainActivity99", "value of eachCupPrice:" + eachCupPrice);
+
+        String priceMessage = "$" + (quantity * eachCupPrice);
 
         priceMessage += "\nHas whipped cream added? " + hasWhippedCream;
         priceMessage += "\nHas chocolate added? " + hasChocolate;
