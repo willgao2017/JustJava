@@ -6,6 +6,8 @@
  */
 package com.example.android.justjava;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -87,20 +89,35 @@ public class MainActivity extends AppCompatActivity {
         priceMessage += "\nHas chocolate added? " + hasChocolate;
 
         EditText customerName = (EditText) findViewById(R.id.enterText);
-        priceMessage += "\nCustomer name is: " + customerName.getText();
+//        priceMessage += "\nCustomer name is: " + customerName.getText();
 
-        displayMessage(priceMessage);
+//        displayMessage(priceMessage);
 
 
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Coffee order from" + customerName.getText());
+        intent.putExtra(Intent.EXTRA_TEXT, priceMessage);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
+
+
+//        Intent intent = new Intent(Intent.ACTION_VIEW);
+//        intent.setData(Uri.parse("geo:47.6, -122.3"));
+//        if (intent.resolveActivity(getPackageManager()) != null) {
+//            startActivity(intent);
+//        }
+
 
     /**
      * This method displays the given text on the screen.
      */
-    private void displayMessage(String message) {
-        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
-        orderSummaryTextView.setText(message);
-    }
+//    private void displayMessage(String message) {
+//        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
+//        orderSummaryTextView.setText(message);
+//    }
 
     /**
      * This method displays the given quantity value on the screen.
@@ -118,8 +135,10 @@ public class MainActivity extends AppCompatActivity {
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
     }    */
     public void onCheckboxClicked(View view) {
+//        dfdsfdf;
+//        sdf;
+//        123423;
 
     }
-
 
 }
