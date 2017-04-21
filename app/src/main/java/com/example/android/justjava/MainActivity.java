@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import java.text.NumberFormat;
 
+import static android.R.attr.name;
 import static com.example.android.justjava.R.id.enterText;
 import static com.example.android.justjava.R.id.order_summary_text_view;
 
@@ -86,7 +87,9 @@ public class MainActivity extends AppCompatActivity {
         String priceMessage = "$" + (quantity * eachCupPrice);
 
         priceMessage += "\nHas whipped cream added? " + hasWhippedCream;
-        priceMessage += "\nHas chocolate added? " + hasChocolate;
+//        priceMessage += "\nHas chocolate added? " + hasChocolate;
+        priceMessage += "\n" + getString(R.string.has_chocolate_added) + hasChocolate;
+
 
         EditText customerName = (EditText) findViewById(R.id.enterText);
 //        priceMessage += "\nCustomer name is: " + customerName.getText();
@@ -96,7 +99,8 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:")); // only email apps should handle this
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Coffee order from" + customerName.getText());
+        String name = customerName.getText().toString();
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Coffee order from " + name);
         intent.putExtra(Intent.EXTRA_TEXT, priceMessage);
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);

@@ -1,6 +1,7 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Just Java</string>
-    <string name="topping1">whipped cream</string>
-    <string name="topping2">chocolate</string>
+    <string name="topping_1">whipped cream</string>
+    <string name="topping_2">chocolate</string>
+    <string name="has_chocolate_added">Has chocolate added?</string>
 </resources>
 
